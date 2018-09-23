@@ -1,8 +1,10 @@
 #!/bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $DIR/crazy-prompt.sh
+
+source $DIR/prompt.sh
 source $DIR/git-autocomplete.sh
+source $DIR/emacs.sh
 
 # Local, unversioned init.
 if [ -f $DIR/init-local.sh ]
@@ -37,6 +39,9 @@ stophistory () {
   PROMPT_COMMAND="bash_prompt_command"
   echo 'History recording stopped. Make sure to `kill -9 $$` at the end of the session.'
 }
+
+# Extra path additions
+export PATH=$HOME/bin:$PATH
 
 # Enable tab completion for aliases. Must come after everything else.
 source $DIR/alias-tab-completion.sh
