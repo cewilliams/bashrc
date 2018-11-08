@@ -6,6 +6,9 @@ source $DIR/prompt.sh
 source $DIR/git-autocomplete.sh
 source $DIR/emacs.sh
 
+export NVM_DIR=$HOME/.nvm
+source $DIR/nvm.sh
+
 # Local, unversioned init.
 if [ -f $DIR/init-local.sh ]
 then
@@ -41,7 +44,7 @@ stophistory () {
 }
 
 # Extra path additions
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Enable tab completion for aliases. Must come after everything else.
 source $DIR/alias-tab-completion.sh
